@@ -24,7 +24,7 @@ class TimeDisplay(Digits):
     def watch_time(self, time: float) -> None:
         minutes, seconds = divmod(time, 60)
         hours, minutes = divmod(minutes, 60)
-        self.update(f"{hours:02,.0f}:{minutes:02.0f}:{seconds:05.2f}")
+        self.update(f"{hours:02,.0f}:{minutes:02.0f}:{seconds:02.0f}")
 
     def start(self) -> None:
         self.start_time = monotonic()

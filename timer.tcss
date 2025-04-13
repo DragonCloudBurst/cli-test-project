@@ -4,9 +4,14 @@ Screen {
     background: #c1e8e4;
 }
 Stopwatch {
-    margin: 0;
+    align: center middle;
+    height: 5;
+    margin: 1;
+    min-width: 30;
+    padding: 0;
 }
 TimeDisplay {
+    text-align: center;
     color: #000;
     height: 3;
 }

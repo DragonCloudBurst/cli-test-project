@@ -1,0 +1,27 @@
+
+Screen {
+    align: center middle;
+    background: #c1e8e4;
+}
+Stopwatch {
+    margin: 0;
+}
+TimeDisplay {
+    color: #000;
+    height: 3;
+}
+#start {
+    background: #005511;
+    color: #fff;
+    margin: 0 1;
+}
+#stop {
+    background: #990025;
+    color: #fff;
+    margin: 0 1;
+}
+#reset {
+    background: #005599;
+    color: #fff;
+    margin: 0 1;
+}

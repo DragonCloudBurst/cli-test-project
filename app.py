@@ -1,5 +1,5 @@
 from textual.app import App, ComposeResult
-from textual.widgets import Digits, Button
+from textual.widgets import Digits, Button, Label
 from textual.reactive import reactive
 from textual.containers import HorizontalGroup, VerticalGroup
 from time import monotonic
@@ -39,7 +39,7 @@ class TimeDisplay(Digits):
         self.total = 0
         self.time = 0
 
-    class Stopwatch(HorizontalGroup):
+    class SketchStopwatch(HorizontalGroup):
 
         def on_button_pressed(self, event: Button.Pressed) -> None:
             button_id = event.button.id
@@ -55,6 +55,51 @@ class TimeDisplay(Digits):
                 
 
         def compose(self) -> ComposeResult:
+            yield Label("Sketch")
+            yield Button("Start", id="start", variant="success")
+            yield Button("Pause", id="stop", variant="error")
+            yield Button("Reset", id="reset")
+            yield TimeDisplay()
+
+    class LineStopwatch(HorizontalGroup):
+
+        def on_button_pressed(self, event: Button.Pressed) -> None:
+            button_id = event.button.id
+            time_display = self.query_one(TimeDisplay)
+            if button_id == "start":
+                time_display.start()
+                self.add_class("started")
+            elif button_id == "stop":
+                time_display.stop()
+                self.remove_class("started")
+            elif button_id == "reset":
+                time_display.reset()
+                
+
+        def compose(self) -> ComposeResult:
+            yield Label("Line")
+            yield Button("Start", id="start", variant="success")
+            yield Button("Pause", id="stop", variant="error")
+            yield Button("Reset", id="reset")
+            yield TimeDisplay()
+
+    class ColorStopwatch(HorizontalGroup):
+
+        def on_button_pressed(self, event: Button.Pressed) -> None:
+            button_id = event.button.id
+            time_display = self.query_one(TimeDisplay)
+            if button_id == "start":
+                time_display.start()
+                self.add_class("started")
+            elif button_id == "stop":
+                time_display.stop()
+                self.remove_class("started")
+            elif button_id == "reset":
+                time_display.reset()
+                
+
+        def compose(self) -> ComposeResult:
+            yield Label("Color")
             yield Button("Start", id="start", variant="success")
             yield Button("Pause", id="stop", variant="error")
             yield Button("Reset", id="reset")
@@ -65,7 +110,7 @@ class App(App):
     CSS_PATH = "timer.tcss"
     
     def compose(self) -> ComposeResult:
-        yield VerticalGroup(TimeDisplay.Stopwatch())
+        yield VerticalGroup(TimeDisplay.SketchStopwatch(), TimeDisplay.LineStopwatch(), TimeDisplay.ColorStopwatch())
 
 
 if __name__ == "__main__":

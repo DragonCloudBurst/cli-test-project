@@ -3,15 +3,20 @@ Screen {
     align: center middle;
     background: #c1e8e4;
 }
-Stopwatch {
+Label {
+    width: 10;
+    content-align: center middle;
+}
+SketchStopwatch, LineStopwatch, ColorStopwatch {
     align: center middle;
     height: 5;
     margin: 1;
-    min-width: 30;
     padding: 0;
 }
 TimeDisplay {
-    text-align: center;
+    width: 50%;
+    align: center middle;
+    text-align: left;
     color: #000;
     height: 3;
 }

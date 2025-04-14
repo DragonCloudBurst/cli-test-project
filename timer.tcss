@@ -4,11 +4,13 @@ Screen {
     background: #c1e8e4;
 }
 Label {
+    color: #222;
     width: 10;
     content-align: center middle;
 }
 SketchStopwatch, LineStopwatch, ColorStopwatch {
     align: center middle;
+    text-style: bold;
     height: 5;
     margin: 1;
     padding: 0;

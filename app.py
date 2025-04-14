@@ -56,7 +56,7 @@ class TimeDisplay(Digits):
 
         def compose(self) -> ComposeResult:
             yield Button("Start", id="start", variant="success")
-            yield Button("Stop", id="stop", variant="error")
+            yield Button("Pause", id="stop", variant="error")
             yield Button("Reset", id="reset")
             yield TimeDisplay()
 
